@@ -9,6 +9,7 @@
 
 void GLClearError()
 {
+    /* 循环获取并清除错误 */
     while (glGetError() != GL_NO_ERROR);
 }
 
@@ -34,8 +35,7 @@ void Renderer::SetClearColor(float red, float green, float blue, float alpha) co
 
 void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const
 {
-    
     va.Bind();
-
-    GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+    // 调用 glDrawElements 时，它会使用索引数组中的 count(第二项) 个连续元素，从 indices(如果绑定了GL_ELEMENT_ARRAY_BUFFER,可使用nullptr) 指定的位置开始，来构造一系列几何图元。
+    GLCall(glDrawElements(GL_TRIANGLES, ib.GetCount(), GL_UNSIGNED_INT, nullptr));
 }

@@ -17,6 +17,8 @@
 #include "imgui/imgui_impl_glfw_gl3.h"
 
 #include "tests/TestClearColor.h"
+#include "tests/TestTexture2D.h"
+#include "tests/TestBatchRender.h"
 
 int main(void)
 {
@@ -65,6 +67,8 @@ int main(void)
         currentTest = testMenu;
 
         testMenu->RegisterTest<test::TestClearColor>("Clear Color");
+        testMenu->RegisterTest<test::TestTexture2D>("Texture 2D");
+        testMenu->RegisterTest<test::TestBatchRender>("BatchRender");
         //test::TestClearColor test; 
 
         Renderer render;
@@ -74,6 +78,7 @@ int main(void)
         {
             /* Render here */
             render.SetClearColor(0.9f, 0.4f, 1.0f, 1.0f);
+            //GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
             render.Clear();
 
             ImGui_ImplGlfwGL3_NewFrame();

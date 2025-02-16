@@ -58,13 +58,6 @@ int main(void)
         -0.5f, 0.5f, 0.0f, 1.0f
     };
 
-    /*float positions2[8] = {
-        1.f, -0.5f,
-        2.f, 0.5f,
-        2.5f, -0.5f,
-        1.f, 0.5f,
-    };*/
-
     unsigned int indices[] = {
         0,1,2,
         0,1,3
@@ -187,12 +180,12 @@ int main(void)
 
 
 
-            if (r < 0.0f)
+           /* if (r < 0.0f)
                 increment = 0.05f;
             if (r > 1.0f)
                 increment = -0.05f;
 
-            r += increment;
+            r += increment;*/
 
             {
                 //static float f = 0.0f;                        

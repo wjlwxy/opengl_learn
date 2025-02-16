@@ -13,8 +13,8 @@ namespace test {
 	{
 		for (auto& test : m_Tests)
 		{
-			if (ImGui::Button(test.first.c_str()))
-				m_CurrentTest = test.second();
+			if (ImGui::Button(test.first.c_str())) // 提供按钮
+				m_CurrentTest = test.second(); // 按下按钮对应的调用
 		}
 	}
 }

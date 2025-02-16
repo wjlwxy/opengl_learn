@@ -2,6 +2,7 @@
 // 声明使用GLSL的版本为3.3核心规范。#version指令必须是shader程序的第一行，用于指定使用的GLSL版本。
 #version 330 core
 
+// 顶点着色器的输入通常是vec4类型，即使你可能只需要vec2或vec3来表示顶点的位置。这是因为OpenGL的变换矩阵（如模型-视图-投影矩阵MVP）是4x4的矩阵，它们期望输入的顶点位置也是4维的（vec4）。具体来说，vec4的前三个分量（x, y, z）用于表示顶点的位置，第四个分量（w）用于透视除法和一些特殊变换（如投影变换）。
 layout(location = 0) in vec4 position; // 定义输入变量position，类型为vec4（四维向量）。layout(location = 0)指定了这个输入变量的位置索引为0。在应用程序中，可以通过这个索引将数据从顶点缓冲区传递给顶点着色器。
 // texCoord通过VertexArray::AddBuffer绑定顶点数组，从而将 纹理坐标 传给 texCoord
 layout(location = 1) in vec2 texCoord; // 定义输入变量texCoord，类型为vec2（二维向量）。layout(location = 1)指定了这个输入变量的位置索引为1。这个变量通常用于存储纹理坐标，以便在片段着色器中对纹理进行采样。
